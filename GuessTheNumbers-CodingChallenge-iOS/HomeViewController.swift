@@ -27,18 +27,29 @@ class MainViewController: UIViewController {
         label.text = "Enter 4 digit combination"
         return label
     }()
-    
+    //MARK: SubViews
     func addSubView() {
         self.view.addSubview(titlelabel)
         self.view.addSubview(instructionsLabel)
+        self.view.addSubview(stackView)
     }
     
+    private func configureStackView() {
+        stackView.axis  = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+        setStackViewConstraints()
+    }
+    
+    //MARK: Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         addSubView()
+        configureStackView()
         setTitleLabelConstraints()
         setInstructionLabelConstraints()
+        
         
     }
     //MARK: CONSTRAINTS
@@ -53,5 +64,12 @@ class MainViewController: UIViewController {
          instructionsLabel.topAnchor.constraint(equalTo: titlelabel.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
          instructionsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
          instructionsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:-20).isActive = true
+    }
+    func setStackViewConstraints() {
+         stackView.translatesAutoresizingMaskIntoConstraints    = false
+         stackView.topAnchor.constraint(equalTo: instructionsLabel.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+         stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:-20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
     }
 }

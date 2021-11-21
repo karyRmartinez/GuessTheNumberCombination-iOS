@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
    var stackView = UIStackView()
+    let callToAction = GTNButton(backgrounfColor: .systemPink, title: "Enter")
     
     //MARK: UIObjects
     lazy var titlelabel: UILabel = {
@@ -92,6 +93,7 @@ class MainViewController: UIViewController {
         configureStackView()
         setTitleLabelConstraints()
         setInstructionLabelConstraints()
+        configureCallToAction()
     
         
     }
@@ -107,6 +109,15 @@ class MainViewController: UIViewController {
          instructionsLabel.topAnchor.constraint(equalTo: titlelabel.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
          instructionsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
          instructionsLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:-20).isActive = true
+    }
+    func configureCallToAction() {
+        view.addSubview(callToAction)
+        NSLayoutConstraint.activate([
+            callToAction.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -50),
+            callToAction.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            callToAction.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            callToAction.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
 }

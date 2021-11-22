@@ -11,27 +11,27 @@ import UIKit
 class MainViewController: UIViewController {
     
    var stackView = UIStackView()
-    let callToAction = GTNButton(backgrounfColor: .systemPink, title: "Enter")
+    let callToAction = GTNButton(backgrounfColor: .systemPink , title: "Enter")
     
     //MARK: UIObjects
     lazy var titlelabel: UILabel = {
-        let label = UILabel()
+        let label               = UILabel()
             label.textAlignment = .center
-            label.font = UIFont.boldSystemFont(ofSize: 20)
-            label.text = "Guess The Combination"
+            label.font          = UIFont.boldSystemFont(ofSize: 20)
+            label.text          = "Guess The Combination"
             return label
     }()
     lazy var instructionsLabel: UILabel = {
-        let label = UILabel()
+        let label           = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = "Enter 4 digit combination"
+        label.font          = UIFont.boldSystemFont(ofSize: 15)
+        label.text          = "Enter 4 digit combination"
         return label
     }()
     lazy var boxOneTextField: UITextField = {
            let textField = UITextField()
            textField .translatesAutoresizingMaskIntoConstraints = false
-           textField .borderStyle = .none
+           textField .borderStyle = .line
            textField .backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
            textField.layer.borderColor = UIColor.black.cgColor
            return textField
@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
     lazy var boxTwoTextField: UITextField = {
            let textField = UITextField()
            textField .translatesAutoresizingMaskIntoConstraints = false
-           textField .borderStyle = .none
+           textField .borderStyle = .line
            textField .backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
            textField.layer.borderColor = UIColor.black.cgColor
            return textField
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
     lazy var boxThreeTextField: UITextField = {
            let textField = UITextField()
            textField .translatesAutoresizingMaskIntoConstraints = false
-           textField .borderStyle = .none
+        textField .borderStyle = .line
            textField .backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
            textField.layer.borderColor = UIColor.black.cgColor
            return textField
@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
     lazy var boxFourTextField: UITextField = {
            let textField = UITextField()
            textField .translatesAutoresizingMaskIntoConstraints = false
-           textField .borderStyle = .none
+        textField .borderStyle = .line
            textField .backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
            textField.layer.borderColor = UIColor.black.cgColor
            return textField
@@ -73,9 +73,9 @@ class MainViewController: UIViewController {
     // ToDo: Center number input. Fix StackView Constraints to be centered.
     private func configureStackView() {
         let stackView = UIStackView(arrangedSubviews: [boxOneTextField,boxTwoTextField,boxThreeTextField,boxFourTextField])
-        stackView.axis  = .horizontal
+        stackView.axis         = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 20
+        stackView.spacing      = 20
         self.view.addSubview(stackView)
         
         stackView.translatesAutoresizingMaskIntoConstraints    = false
@@ -85,10 +85,10 @@ class MainViewController: UIViewController {
        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -350).isActive = true
     }
     
-    //MARK: Cycle
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
         addSubView()
         configureStackView()
         setTitleLabelConstraints()

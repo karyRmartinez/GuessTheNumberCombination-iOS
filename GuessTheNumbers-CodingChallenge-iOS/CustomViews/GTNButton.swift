@@ -20,7 +20,7 @@ class GTNButton: UIButton {
     
     init(backgrounfColor: UIColor, title: String) {
         super.init(frame: .zero)
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = .systemPink
         self.setTitle(title, for: .normal)
         configure()
     }

@@ -9,15 +9,18 @@ import UIKit
 
 class IntroViewController: UIViewController {
 
+    
     lazy var imageViewSet : UIImageView = {
     let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.animationImages = [
-        UIImage(named:"" )!,
-        UIImage(named:"")!
+        UIImage(named:"guessImage" )!,
+        UIImage(named:"theImage")!,
+        UIImage(named:"numbersImage")!
         ]
-        image.animationDuration = 1
+        image.animationDuration = 2
         return image
+        
    
        }()
  
@@ -39,24 +42,28 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          // Do any additional setup after loading the view.
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         imageViewSet.startAnimating()
         addSubviews()
         settingUpConstraints()
 
     }
     private func addSubviews() {
-      
-        self.view.addSubview(imageViewSet)
+   self.view.addSubview(imageViewSet)
+    self.view.addSubview(loginButton)
         
     }
     private func settingUpConstraints() {
         NSLayoutConstraint.activate([
-       imageViewSet.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 40),
-        imageViewSet.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        imageViewSet.widthAnchor.constraint(equalToConstant: 100),
-        imageViewSet.heightAnchor.constraint(equalToConstant: 100),
-        
+      imageViewSet.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
+      imageViewSet.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      imageViewSet.widthAnchor.constraint(equalToConstant: 200),
+      imageViewSet.heightAnchor.constraint(equalToConstant: 200),
+            
+      loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 150),
+      loginButton.widthAnchor.constraint(equalToConstant: 140),
+      loginButton.heightAnchor.constraint(equalToConstant: 35),
       
                    
         ])

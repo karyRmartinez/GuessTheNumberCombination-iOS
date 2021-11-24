@@ -8,8 +8,7 @@
 import Foundation
 
 struct numbers: Codable {
-    var numberOne: Int
-    var numberTwo: Int
-    var numberThree: Int
-    var numberFour: Int
+    var random: Int
+    var data: Int
+  
 }

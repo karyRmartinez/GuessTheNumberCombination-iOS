@@ -9,8 +9,7 @@ import UIKit
 
 class IntroViewController: UIViewController {
 
-    
-    lazy var imageViewSet : UIImageView = {
+   lazy var imageViewSet : UIImageView = {
     let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.animationImages = [
@@ -20,8 +19,6 @@ class IntroViewController: UIViewController {
         ]
         image.animationDuration = 2
         return image
-        
-   
        }()
  
     lazy var loginButton: UIButton = {

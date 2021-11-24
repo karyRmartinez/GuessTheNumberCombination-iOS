@@ -8,7 +8,14 @@
 import Foundation
 
 struct numbers: Codable {
-    var random: Int
-    var data: Int
-  
+    let results: [Results]
+    let id: Int
+}
+struct Results: Codable {
+    let random: [Random]
+}
+
+struct Random: Codable {
+    let data: [Int]
+    let completionTime: String
 }

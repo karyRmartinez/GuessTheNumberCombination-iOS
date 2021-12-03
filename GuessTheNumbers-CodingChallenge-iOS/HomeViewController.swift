@@ -2,23 +2,33 @@
 //  HomeViewController.swift
 //  GuessTheNumbers-CodingChallenge-iOS
 //
-//  Created by Kary Martinez on 11/20/21.
+//  Created by Kary Martinez on 11/25/21.
 //
 
 import Foundation
 import UIKit
 
+
+
+
 class MainViewController: UIViewController {
     
-  
+ 
     let callToAction = GTNButton(backgrounfColor: .systemPink , title: "Enter")
+    
+    
+    private var diffCombination: String = ""
+    private var guesses: [String] = []
+    private var guessDict: [String:[Int]] = [:]
+    private var victory: Bool = false
+    private var streak: Int = 0
     
     //MARK: UIObjects
     lazy var titlelabel: UILabel = {
         let label               = UILabel()
             label.textAlignment = .center
             label.font          = UIFont.boldSystemFont(ofSize: 15)
-            label.text          = "Enter 4 digit Guess"
+          //  label.text          = "Enter 4 digit Guess"
             return label
     }()
     lazy var previousGuessLabel: UILabel = {
@@ -34,6 +44,7 @@ class MainViewController: UIViewController {
            textField .borderStyle      = .line
            textField .backgroundColor  = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
            textField.layer.borderColor = UIColor.black.cgColor
+        textField.attributedPlaceholder = NSAttributedString(string: "guess here", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
            return textField
     }()
     //MARK: SubViews
@@ -42,11 +53,12 @@ class MainViewController: UIViewController {
         self.view.addSubview(previousGuessLabel)
         self.view.addSubview(boxOneTextField)
     }
-    //MARK: Private Functions
-    // ToDo: Center number input. Fix StackView Constraints to be centered.
+
+    
     private func NavigationBarTitle() {
          self.title = "Guess The Numbers"
      }
+
 
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -56,8 +68,13 @@ class MainViewController: UIViewController {
         NavigationBarTitle()
         setConstraints()
         configureCallToAction()
-    
+     
     }
+   
+    
+
+
+
     //MARK: CONSTRAINTS
     func setConstraints() {
          titlelabel.translatesAutoresizingMaskIntoConstraints    = false
@@ -88,3 +105,5 @@ class MainViewController: UIViewController {
     }
     
 }
+
+

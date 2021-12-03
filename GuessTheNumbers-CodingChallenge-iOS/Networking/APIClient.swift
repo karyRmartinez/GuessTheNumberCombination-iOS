@@ -7,37 +7,25 @@
 
 import Foundation
 
-struct APIClient {
-    func fetchData(completion: @escaping (Result<[numbers], Error>) -> ()) {
-        
-        let endpointURLString = "http://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new"
-        
-        guard let url = URL(string: endpointURLString) else {
-            print("bad url")
-            return
-        }
-        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                return completion(.failure(error))
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode) else {
-                print("bad status code")
-                return
-            }
-            
-            if let jsonData = data {
-                // convert data to our swift model
+enum RandomAPI { }
+
+extension RandomAPI {
+    struct get {
+        let result: (()-> String?)
+        init(total: Int, min: Int, max: Int){
+            let url = "https://www.random.org/integers/?num=\(total)&min=\(min)&max=\(max)&col=1&base=10&format=plain&rnd=new"
+            result = {
                 do {
-                    let nums = try JSONDecoder().decode(Results.self, from: jsonData)
-                    //   completion(.success(nums.random))
+                    let data = try Data(contentsOf: URL(string: url)!)
+                    let result = String(data: data, encoding: .utf8)!.components(separatedBy: "\n").joined()
+                    return result
                 } catch {
-                    // decoding error
-                    completion(.failure(error))
+                    return nil
                 }
             }
         }
-        dataTask.resume()
     }
 }
+
+
+

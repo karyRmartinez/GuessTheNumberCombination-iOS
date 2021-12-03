@@ -22,6 +22,9 @@
 		6BDF4D13274DD34E00D5C0D4 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDF4D12274DD34E00D5C0D4 /* AppErrors.swift */; };
 		6BDF4D15274DD43B00D5C0D4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDF4D14274DD43B00D5C0D4 /* Helper.swift */; };
 		6BDF4D17274DE0E400D5C0D4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDF4D16274DE0E400D5C0D4 /* IntroViewController.swift */; };
+		6BFD091627598BD000860220 /* UrlSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD091527598BD000860220 /* UrlSessionViewController.swift */; };
+		6BFD09192759E3EB00860220 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD09182759E3EB00860220 /* Game.swift */; };
+		6BFD091E2759EA9300860220 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD091D2759EA9300860220 /* StringExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		6BDF4D12274DD34E00D5C0D4 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		6BDF4D14274DD43B00D5C0D4 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		6BDF4D16274DE0E400D5C0D4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		6BFD091527598BD000860220 /* UrlSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionViewController.swift; sourceTree = "<group>"; };
+		6BFD09182759E3EB00860220 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		6BFD091D2759EA9300860220 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,9 @@
 		6BDF4CCA2749B8BC00D5C0D4 = {
 			isa = PBXGroup;
 			children = (
+				6BFD091F275AA18100860220 /* Cell */,
+				6BFD091C2759EA5D00860220 /* Extention */,
+				6BFD09172759E3D600860220 /* Flow */,
 				6BDF4D0F274DD19400D5C0D4 /* Networking */,
 				6BDF4D0C274DB2F600D5C0D4 /* Models */,
 				6BDF4D09274AB75800D5C0D4 /* CustomViews */,
@@ -177,8 +186,32 @@
 				6BDF4D10274DD25900D5C0D4 /* APIClient.swift */,
 				6BDF4D12274DD34E00D5C0D4 /* AppErrors.swift */,
 				6BDF4D14274DD43B00D5C0D4 /* Helper.swift */,
+				6BFD091527598BD000860220 /* UrlSessionViewController.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		6BFD09172759E3D600860220 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				6BFD09182759E3EB00860220 /* Game.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		6BFD091C2759EA5D00860220 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				6BFD091D2759EA9300860220 /* StringExtention.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		6BFD091F275AA18100860220 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,11 +345,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BDF4D13274DD34E00D5C0D4 /* AppErrors.swift in Sources */,
+				6BFD09192759E3EB00860220 /* Game.swift in Sources */,
 				6BDF4CDB2749B8BC00D5C0D4 /* ViewController.swift in Sources */,
 				6BDF4D11274DD25900D5C0D4 /* APIClient.swift in Sources */,
+				6BFD091627598BD000860220 /* UrlSessionViewController.swift in Sources */,
 				6BDF4D0B274ABAC600D5C0D4 /* GTNButton.swift in Sources */,
 				6BDF4CD72749B8BC00D5C0D4 /* AppDelegate.swift in Sources */,
 				6BDF4D17274DE0E400D5C0D4 /* IntroViewController.swift in Sources */,
+				6BFD091E2759EA9300860220 /* StringExtention.swift in Sources */,
 				6BDF4D15274DD43B00D5C0D4 /* Helper.swift in Sources */,
 				6BDF4CD92749B8BC00D5C0D4 /* SceneDelegate.swift in Sources */,
 				6BDF4D0E274DB31A00D5C0D4 /* randomNumers.swift in Sources */,

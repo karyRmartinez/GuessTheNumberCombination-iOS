@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// My initial thought process when working with the API. Didn't work as I intended to use it at first. Had to read articles and thats how I made the other Client file.
 
 //class UrlSessionViewController: UIViewController {
 //

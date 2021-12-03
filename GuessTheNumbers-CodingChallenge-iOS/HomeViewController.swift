@@ -37,11 +37,18 @@ class MainViewController: UIViewController {
 //          label.text          = "comb"
             return label
     }()
-    lazy var previousGuessLabel: UILabel = {
+    lazy var resutOfGuessLabel: UILabel = {
         let label           = UILabel()
         label.textAlignment = .center
         label.font          = UIFont.boldSystemFont(ofSize: 15)
-        label.text          = "Previous Guess below"
+        return label
+    }()
+    lazy var NumOfTries: UILabel = {
+        let label           = UILabel()
+        label.textAlignment = .center
+        label.font          = UIFont.boldSystemFont(ofSize: 15)
+        label.text = "Number Of Tries /"
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     lazy var boxOneTextField: UITextField = {
@@ -67,9 +74,10 @@ class MainViewController: UIViewController {
     //MARK: SubViews
     func addSubView() {
         self.view.addSubview(titlelabel)
-        self.view.addSubview(previousGuessLabel)
+        self.view.addSubview(resutOfGuessLabel)
         self.view.addSubview(boxOneTextField)
         self.view.addSubview(hiddenNumlabel)
+        self.view.addSubview(NumOfTries)
     }
     //MARK: NavigationTitle
     
@@ -100,6 +108,7 @@ class MainViewController: UIViewController {
         addSubView()
         NavigationBarTitle()
         setConstraints()
+        setTriesContraints()
         configureCallToAction()
        
 
@@ -124,21 +133,23 @@ class MainViewController: UIViewController {
         }
         let guess = boxOneTextField.text ?? ""
         if guess.count < diffCombination.count {
-            previousGuessLabel.text = "Not enough digits, try again."
+            resutOfGuessLabel.text = "Not enough digits, try again."
+            titlelabel.text = ""
            
         } else if guess.count > diffCombination.count {
-            previousGuessLabel.text = "Too many digits, try again."
+            resutOfGuessLabel.text = "Too many digits, try again."
+            titlelabel.text = ""
            
         } else if guessDict[guess] != nil {
-            previousGuessLabel.text = "Already tried this, try again."
-           
+            resutOfGuessLabel.text = "Already tried this, try again."
+            titlelabel.text = ""
         } else {
             let matches = diffCombination.match(other: guess)
             sucessfulGame = matches[0] == 4 && matches[1] == 4
             let resultText = matches[0] > 0 ? "\(matches[0]) digits matched!" : "No digits matched."
-            
-            previousGuessLabel.text = resultText
-            
+            let titleText = matches[1] > 0 ? "\(matches[1]) in right place!" : ""
+            resutOfGuessLabel.text = resultText
+            titlelabel.text = titleText
             guesses.append(guess)
             guessDict[guess] = matches
         }
@@ -172,10 +183,11 @@ class MainViewController: UIViewController {
         boxOneTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         boxOneTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:-20).isActive = true
         
-        previousGuessLabel.translatesAutoresizingMaskIntoConstraints    = false
-        previousGuessLabel.bottomAnchor.constraint(equalTo: boxOneTextField.safeAreaLayoutGuide.bottomAnchor, constant: 200).isActive = true
-        previousGuessLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        previousGuessLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:-10).isActive = true
+        resutOfGuessLabel.translatesAutoresizingMaskIntoConstraints    = false
+        resutOfGuessLabel.bottomAnchor.constraint(equalTo: boxOneTextField.safeAreaLayoutGuide.bottomAnchor, constant: 200).isActive = true
+        resutOfGuessLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        resutOfGuessLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:-10).isActive = true
+     
     }
    
     func configureCallToAction() {
@@ -188,7 +200,14 @@ class MainViewController: UIViewController {
        
         ])
     }
-    
+    func setTriesContraints() {
+        NSLayoutConstraint.activate([
+         NumOfTries.heightAnchor.constraint(equalToConstant: 20),
+         NumOfTries.widthAnchor.constraint(equalToConstant: 150),
+         NumOfTries.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20),
+         NumOfTries.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80),
+            ])
+         }
 }
 
 

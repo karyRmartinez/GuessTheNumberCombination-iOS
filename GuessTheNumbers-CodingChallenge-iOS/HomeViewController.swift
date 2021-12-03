@@ -124,7 +124,7 @@ class MainViewController: UIViewController {
             encode = encode + "X"
         }
         hiddenNumlabel.text = encode
-        displayResults()
+      
     }
    // chnage hidden to  true
     private func displayResults() {

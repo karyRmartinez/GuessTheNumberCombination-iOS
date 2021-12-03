@@ -7,7 +7,7 @@ LinkedIn coding challenge.
 
 ## ScreenShot
 
-// ![home Screen](Assets/homescreen.pgn)
+// ![home Screen](Assets/homescreen.png)
 
 ## Gif
 ! [Guess The Number App] (Assets/)

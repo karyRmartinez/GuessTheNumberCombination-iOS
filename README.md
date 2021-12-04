@@ -1,6 +1,15 @@
 # GuessTheNumberCombination-iOS
 LinkedIn coding challenge.
 
+## Build and Runtime Requirements
++ Xcode 6.0 or later
++ iOS 8.0 or later
++ OS X v10.10 or later
++ 
+### Common setup
+Clone the repo and install the dependencies.
+
+
 ## Description 
 
 //
@@ -31,3 +40,5 @@ LinkedIn coding challenge.
         }
     }
     ```
+## APIs
+https://www.random.org/integers/

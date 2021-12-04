@@ -44,3 +44,4 @@ the right number combinations within 10 attempts to win the game.
   
 ### APIs
 https://www.random.org/clients/http/api/
+using https://www.random.org/integers/ -> Integer Generator makes random numbers in configurable intervals

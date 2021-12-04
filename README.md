@@ -42,7 +42,7 @@ the right number combinations within 10 attempts to win the game.
     }
   ```
   
-##APIs
+## APIs
 Given the following endpoint: https://www.random.org/clients/http/api/ verify the JSON payload via Postman or other.
 
 using https://www.random.org/integers/ -> Integer Generator makes random numbers in configurable intervals

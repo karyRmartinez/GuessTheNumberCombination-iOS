@@ -3,7 +3,7 @@ LinkedIn coding challenge.
 
 ## Build and Runtime Requirements
 + Xcode 6.0 or later
-+ iOS 8.0 or later
++ iOS 8.0 or later (preferably 11 pro)
 + OS X v10.10 or later
 + 
 ### Common setup

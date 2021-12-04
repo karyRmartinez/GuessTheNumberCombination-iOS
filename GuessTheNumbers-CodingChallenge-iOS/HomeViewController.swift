@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
         button.backgroundColor = .systemPink
           button.translatesAutoresizingMaskIntoConstraints = false
           button.layer.cornerRadius = 12
-         button.addTarget(self, action: #selector(self.enterButtonPressed(sender:)), for: .touchUpInside)
+         button.addTarget(self, action: #selector(self.previousButtonPressed(sender:)), for: .touchUpInside)
           return button
       }()
     //MARK: SubViews
@@ -105,6 +105,10 @@ class MainViewController: UIViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    @objc func previousButtonPressed(sender: UIButton) {
+    //self.animateView(sender)
+    self.navigationController?.pushViewController(PreviousTableViewController(), animated: true)
     }
     @objc func enterButtonPressed(sender: UIButton) {
      displayResults()

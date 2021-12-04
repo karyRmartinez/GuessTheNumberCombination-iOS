@@ -70,7 +70,15 @@ class MainViewController: UIViewController {
          button.addTarget(self, action: #selector(self.enterButtonPressed(sender:)), for: .touchUpInside)
           return button
       }()
-    
+    lazy var PreviousButton: UIButton = {
+          let button = UIButton()
+          button.setTitle("Previous", for: .normal)
+        button.backgroundColor = .systemPink
+          button.translatesAutoresizingMaskIntoConstraints = false
+          button.layer.cornerRadius = 12
+         button.addTarget(self, action: #selector(self.enterButtonPressed(sender:)), for: .touchUpInside)
+          return button
+      }()
     //MARK: SubViews
     func addSubView() {
         self.view.addSubview(titlelabel)
@@ -78,6 +86,7 @@ class MainViewController: UIViewController {
         self.view.addSubview(boxOneTextField)
         self.view.addSubview(hiddenNumlabel)
         self.view.addSubview(NumOfTries)
+        self.view.addSubview(PreviousButton)
     }
     //MARK: NavigationTitle
     
@@ -110,6 +119,7 @@ class MainViewController: UIViewController {
         setConstraints()
         setTriesContraints()
         configureCallToAction()
+        setPreviousContraints()
        
 
         if let newCombo = delegate?.requestDigits() {
@@ -206,6 +216,14 @@ class MainViewController: UIViewController {
          NumOfTries.widthAnchor.constraint(equalToConstant: 150),
          NumOfTries.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20),
          NumOfTries.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80),
+            ])
+         }
+    func setPreviousContraints() {
+        NSLayoutConstraint.activate([
+         PreviousButton.heightAnchor.constraint(equalToConstant: 30),
+         PreviousButton.widthAnchor.constraint(equalToConstant: 150),
+         PreviousButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: -20),
+         PreviousButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80),
             ])
          }
 }
